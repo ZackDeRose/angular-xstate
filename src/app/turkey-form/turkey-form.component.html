@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+  <legend>{{ name }}</legend>
+  <div>
+    <input [id]="'eat-' + id" type="checkbox" formControlName="eat" />
+    <label [for]="'eat-' + id">Eat</label>
+  </div>
+  <div>
+    <input [id]="'pardon-' + id" type="checkbox" formControlName="pardon" />
+    <label [for]="'pardon-' + id">Pardon</label>
+  </div>
+</form>

@@ -1,0 +1,8 @@
+<form *ngIf="form" [formGroup]="form">
+  <h2>Undecided Turkeys:</h2>
+  <app-turkey-form
+    *ngFor="let name of names$ | async"
+    [formControlName]="name"
+    [name]="name"
+  ></app-turkey-form>
+</form>

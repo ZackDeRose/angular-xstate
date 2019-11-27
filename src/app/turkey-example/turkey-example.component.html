@@ -1,0 +1,25 @@
+<h1>Turkey Pardoning Machine</h1>
+
+<ng-container *ngIf="state$ | async as state">
+  <pre>{{ state.context | json }}</pre>
+  <form
+    *ngIf="state.value !== 'init' && state.value !== 'initial loading'"
+    [formGroup]="form"
+    (submit)="formSubmit()"
+  >
+    <app-turkeys-form formControlName="turkeys"></app-turkeys-form>
+    <button type="submit" [disabled]="state.value !== 'valid form'">
+      Render Judgement
+    </button>
+  </form>
+
+  <h2>Eaten Turkeys:</h2>
+  <ul>
+    <li *ngFor="let turkey of eaten">{{ turkey }}</li>
+  </ul>
+
+  <h2>Pardoned Turkeys:</h2>
+  <ul>
+    <li *ngFor="let turkey of pardoned">{{ turkey }}</li>
+  </ul>
+</ng-container>

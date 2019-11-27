@@ -4,6 +4,8 @@ import { of, from, throwError, Subject, BehaviorSubject } from 'rxjs';
 import { tap, catchError, startWith } from 'rxjs/operators';
 import { fetchMachine } from './fetchMachine';
 import { interpret } from 'xstate';
+import { createTurkeyForm } from './turkey-form/turkey-form.component';
+import { createTurkeysForm } from './turkeys-form/turkeys-form.component';
 
 @Component({
   selector: 'app-root',
@@ -40,4 +42,11 @@ export class AppComponent {
   getPeople() {
     this.service.send({ type: 'FETCH' });
   }
+
+  turkeyForm = createTurkeyForm();
+  turkeysForm = createTurkeysForm({
+    test: 'undecided',
+    zack: 'eat',
+    isaac: 'pardon'
+  });
 }
